@@ -15,3 +15,7 @@ Route::get('/user', function (Request $request) {
 Route::resource('training_centers', ControllersTrainingCenterController::class);
 Route::resource('computers', ControllersComputerController::class);
 route::resource('areas', ControllersAreaController::class);
+
+use App\Http\Controllers\TrainingController;
+
+Route::apiResource('trainings', TrainingController::class);
