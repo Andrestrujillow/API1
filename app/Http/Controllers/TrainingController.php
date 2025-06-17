@@ -10,7 +10,10 @@ class TrainingController extends Controller
     // GET /api/trainings - Lista todas las capacitaciones
     public function index()
     {
-        $trainings = Training::all(); // o usar algún scope si lo tienes
+        $trainings = Training::query()
+            ->included() // Aplica el scope para incluir relaciones
+            ->filter() // Aplica el scope para filtrar por parámetros
+            ->get();
         return response()->json($trainings);
     }
 

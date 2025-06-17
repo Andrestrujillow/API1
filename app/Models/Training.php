@@ -57,9 +57,9 @@ class Training extends Model
         $filters = request('filter');
         $allowFilter = collect($this->allowFilter);
 
-        foreach ($filters as $field => $value) {
-            if ($allowFilter->contains($field)) {
-                $query->where($field, 'LIKE', '%' . $value . '%');
+        foreach ($filters as $filter => $value) {
+            if ($allowFilter->contains($filter)) {
+                $query->where($filter, 'LIKE', '%' . $value . '%');
             }
         }
     }
